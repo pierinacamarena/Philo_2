@@ -40,3 +40,22 @@ void	ft_putstr_fd(char *s, int fd)
 			write(fd, s++, 1);
 	}
 }
+
+void	locked_print(t_philo *philo, int action)
+{
+	pthread_mutex_lock(&(philo->params->meal_check));
+	pthread_mutex_lock(&(philo->params->printer));
+	if (philo->params->died != 1)
+	{
+	if (action == 1)
+	    printf("%lld %d has taken a fork\n", current_time() - philo->time_init, philo->id);
+	else if (action == 2)
+	    printf("%lld %d is eating\n", current_time() - philo->time_init, philo->id);
+	else if (action == 3)
+	    printf("%lld %d is sleeping\n", current_time() - philo->time_init, philo->id);
+	else if (action == 4)
+	    printf("%lld %d is thinking\n", current_time() - philo->time_init, philo->id);
+	}
+	pthread_mutex_unlock(&(philo->params->printer));
+	pthread_mutex_unlock(&(philo->params->meal_check));
+}

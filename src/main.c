@@ -28,6 +28,6 @@ int	main(int ac, char **av)
 		error_parsing();
 		exit (1);
 	}
-	// init_philo(&param);
+	init_philo(&param);
 	return (0);
 }

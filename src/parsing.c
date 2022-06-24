@@ -75,7 +75,5 @@ int arg_parsing(t_param *param, char **av, int ac)
         param->num_eat = 0;
     if (init_mutexes(param))
         return (1);
-    // if (init_philo(param))
-    //     return (1);
     return (0);
 }

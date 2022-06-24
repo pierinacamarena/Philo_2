@@ -9,7 +9,10 @@ SOURCES =	main.c \
 			error.c \
 			parsing.c \
 			time.c \
-			utils.c
+			utils.c \
+			philo.c \
+			activities.c \
+			checker.c
 
 SRCS = $(addprefix $(SRC)/, $(SOURCES))
 OBJS = $(addprefix $(OBJ)/, $(SOURCES:.c=.o))

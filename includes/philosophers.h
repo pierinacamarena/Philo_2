@@ -27,7 +27,6 @@ typedef struct  s_fork
 
 typedef struct  s_philo
 {
-    int             total_philo;
     int             id;
     long long       time_init;
     long long       l_meal;
@@ -69,4 +68,22 @@ int arg_parsing(t_param *param, char **av, int ac);
 /*utils*/
 int		ft_atoi(const char *str);
 void	ft_putstr_fd(char *s, int fd);
+void	locked_print(t_philo *philo, int action);
+
+/*philo*/
+int	init_philo(t_param *param);
+void    philos_setup(t_param *param);
+
+/*time*/
+long long	current_time(void);
+long long   time_differ(long long past, long long current);
+void    my_sleep(t_philo *philo, int time_sleep);
+void		ft_usleep(unsigned int n, t_philo *th);
+
+/*activites*/
+int    eat(t_philo *philo);
+int    philo_sleep(t_philo *philo);
+
+/*checker*/
+void    check_dead_full(t_param *param);
 #endif
